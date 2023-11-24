@@ -3,3 +3,5 @@ k6 run --http-debug="full" C:\Github\k6\scripts_1\firstscript.js
 
 
 Зпуск скрипта с ертификатом --insecure-skip-tls-verify
+
+Запись в InfluxDB  k6 run  E:\GitHub\k6\test_mock_server\ScenarioMaxPerf.js -o influxdb=http://:@localhost:8086/TEST_MOCK
