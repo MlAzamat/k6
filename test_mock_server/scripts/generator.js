@@ -1,3 +1,5 @@
+//import { randomBytes } from "k6/crypto";
+
 export function generate_inn(organization_type) {
 
     var inn = [];
@@ -43,12 +45,6 @@ export function generate_inn(organization_type) {
                        inn[5] * 3 + inn[6] * 5 + inn[7] * 9 + inn[8] * 4 + inn[9] * 6 + inn[10] * 8) % 11) % 10);
 
         }
-
-   
-
-          
-
- 
 
     //console.log(inn.join(''));          
 
@@ -157,3 +153,54 @@ export function generate_okpo(organization_type) {
     return okpo.join('');
 
 }
+
+export function generate_snils() {
+
+
+    return `не реализованно`;
+}
+
+export function generate_phone() {
+    return '+7 9' + random_number(2) + ' ' + random_number(3) + '-' + random_number(2) + '-' + random_number(2);
+}
+
+export function random_characters(length) {
+    let result = '';
+    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLenght = characters.length;
+    let counter = 0;
+    while (counter < length) {
+        result +=characters.charAt(Math.floor(Math.random() * charactersLenght));
+        counter += 1;
+    }
+    return result;
+}
+
+
+
+export function random_number(length) {
+    let result = '';
+    const numbers = '0123456789';
+    const numbersLength = numbers.length;
+    let counter = 0;
+    while (counter < length) {
+        result +=numbers.charAt(Math.floor(Math.random() * numbersLength));
+        counter += 1;
+    }
+    return result;
+}
+
+
+export function current_date() {
+    const date = new Date();
+    const currentDate =date.toISOString().split('.')[0];
+    return currentDate;
+}
+
+
+export function random_code() {
+    const codeList = ['code_1', 'code_11', 'code_12', 'code_13', 'code_14', 'code_15'];
+    let code = codeList[Math.floor(Math.random() * codeList.length)];
+    return code;
+}
+
