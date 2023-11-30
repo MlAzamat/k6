@@ -157,7 +157,7 @@ export function generate_okpo(organization_type) {
 export function generate_snils() {
 
 
-    return `не реализованно`;
+    return `------- не реализованно -------`;
 }
 
 export function generate_phone() {
@@ -176,7 +176,17 @@ export function random_characters(length) {
     return result;
 }
 
-
+export function random_letters(length) {
+    let result = '';
+    const characters = 'abcdefghijklmnopqrstuvwxyz';
+    const charactersLenght = characters.length;
+    let counter = 0;
+    while (counter < length) {
+        result +=characters.charAt(Math.floor(Math.random() * charactersLenght));
+        counter += 1;
+    }
+    return result;
+}
 
 export function random_number(length) {
     let result = '';
@@ -190,6 +200,10 @@ export function random_number(length) {
     return result;
 }
 
+export function random_number_between(min,max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 
 export function current_date() {
     const date = new Date();
@@ -197,9 +211,34 @@ export function current_date() {
     return currentDate;
 }
 
+export function random_small_date() {
+    var m = random_number_between(1,12);
+    if (m < 10)
+        var mes = '0' + m;
+    else
+        var mes = m;
+    if (m = 2)    
+        var d = random_number_between(1,28);
+    else
+        var d = random_number_between(1,30);
+    if (d < 10)
+        var day = '0' + d;
+    else
+        var day = d;
+    var y = random_number_between(1,22);
+    if (y < 10)
+        var yy = '0' + y;
+    else
+        var yy = y;
+    return day + '.' + mes + '.' + yy;
+}
 
-export function random_code() {
-    const codeList = ['code_1', 'code_11', 'code_12', 'code_13', 'code_14', 'code_15'];
+export function random_date() {
+    return '-------- не реализовано ------';
+}
+
+export function random_from_list() {
+    const codeList = ['nabor_1', 'nabor_2', 'nabor_3', 'nabor_4', 'nabor_5'];
     let code = codeList[Math.floor(Math.random() * codeList.length)];
     return code;
 }
