@@ -1,13 +1,13 @@
 import test_simple_stub from './test_simple_stub.js';
 
 // Интенсивность запрсоов (RPS / RPM / RPH задаётся далее в timeUnit)
-const test_simple_stub_startRate = 1;
+const test_simple_stub_startRate = 100;
 
 // еденица измерения RPS / RPM / RPH
 const timeUnit = '1s';
 
 // Длительность теста
-const stageTime = '1m';
+const stageTime = '1h';
 
 // Время за которое поднимаемся на новый шаг
 const loadTime = '0s';
