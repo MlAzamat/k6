@@ -1,24 +1,20 @@
 import http from 'k6/http';
 import { check } from 'k6';
 import { SharedArray } from "k6/data";
-//import { randomNumber, currentDate } from ''./gen_data_fns.js;
+import { random_number, random_letters } from 'E:/GitHub/k6/code/Tools/generator.js';
 
 export const options = {
 
 }
 
-/*const name = new SharedArray('UC06_mdmcode', function () {
-  return JSON.parse(open('testData//uc06_mdmcode/mdmcode.json'));
-});
+//const host = JSON.parse(open('host.json')).etalon_references;
 
-const host = JSON.parse(open('host.json')).etalon_references;
-*/
 
 export default function () {
 
-  const name = "Bogdan"; //data_name[Math.floor(Math.random() * data_name.length)].name;
-  const lastName = "Nikolaev";
-  const age = 22; //randomNumber(2);
+  const name = random_letters(6);
+  const lastName = random_letters(8);
+  const age = random_number(2);
 
   const url = "http://127.0.0.1:8080/profiles"; //'http://' + host + '127.0.0.1:8080/profiles';
 
@@ -39,7 +35,7 @@ const headers = {
 let res = http.post(url, body, headers);
 
 check(res, {
-  'POST status 200': r => r.status == 200
+  'POST status 200 or 201': r => ( r.status == 201 || r.status == 200 )
 })
 
 }
