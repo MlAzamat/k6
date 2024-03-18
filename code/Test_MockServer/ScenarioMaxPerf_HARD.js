@@ -5,6 +5,14 @@ import UC02_post_users from './scripts/UC02_post_users.js';
 
 
 export const options = {
+  insecureSkipTlsVerify: true,
+  noVUConnectionReuse: true,
+  // tlsAuth: [
+  //   {
+  //     cert: open('../cert.pem'),
+  //     key: open('../key.pem')
+  //   }
+  // ],
   scenarios: {
     UC01_get_greeting: {
       executor: 'ramping-arrival-rate',

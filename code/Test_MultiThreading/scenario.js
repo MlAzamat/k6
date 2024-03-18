@@ -1,4 +1,4 @@
-import test_simple_stub from './test_simple_stub.js';
+import test_simple_stub from './scripts/test_simple_stub.js';
 
 // Интенсивность запрсоов (RPS / RPM / RPH задаётся далее в timeUnit)
 const test_simple_stub_startRate = 100;
@@ -7,7 +7,7 @@ const test_simple_stub_startRate = 100;
 const timeUnit = '1s';
 
 // Длительность теста
-const stageTime = '1h';
+const stageTime = '10m';
 
 // Время за которое поднимаемся на новый шаг
 const loadTime = '0s';
@@ -47,9 +47,15 @@ const getOptions = (startRate, exec) => {
 
 export const options = {
   insecureSkipTlsVerify: true,
+  noVUConnectionReuse: true,
+  // tlsAuth: [
+  //   {
+  //     cert: open('../cert.pem'),
+  //     key: open('../key.pem')
+  //   }
+  // ],
   scenarios: {
     test_simple_stub_startRate: getOptions(test_simple_stub_startRate, 'test_simple_stub_exec'),
-
   }
 }
 

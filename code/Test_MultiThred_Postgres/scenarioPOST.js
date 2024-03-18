@@ -47,6 +47,13 @@ const getOptions = (startRate, exec) => {
 
 export const options = {
   insecureSkipTlsVerify: true,
+  noVUConnectionReuse: true,
+  // tlsAuth: [
+  //   {
+  //     cert: open('../cert.pem'),
+  //     key: open('../key.pem')
+  //   }
+  // ],
   scenarios: {
     test_startRate: getOptions(test_startRate, 'test_exec'),
 

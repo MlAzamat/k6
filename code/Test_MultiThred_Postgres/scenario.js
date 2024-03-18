@@ -75,6 +75,7 @@ const getOptions_StableLoad = (startRate, exec) => {
 
 export const options = {
 //  insecureSkipTlsVerify: true,
+noVUConnectionReuse: true,
   scenarios: {
     script_get: getOptions_IncreasingLoad(get_intensity, 'GET_1'),
     script_post: getOptions_IncreasingLoad(post_intensity, 'POST_1'),
